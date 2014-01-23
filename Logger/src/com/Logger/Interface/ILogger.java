@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+package com.Logger.Interface;
+
+/**
+ * @author liuyuanzhou
+ *
+ */
+public interface ILogger {
+	void info(int MarkerId,String Message);
+	
+	void info(int MarkerId,String Message,Exception ex);
+	
+	void infoFmt(int MarkerId,String Message,Object...Params);
+	
+	void infoFmt(Exception ex,int MarkerId,String Message,Object...Params);
+	
+	void warn(int MarkerId,String Message);
+	
+	void warn(int MarkerId,String Message,Exception ex);
+	
+	void warnFmt(int MarkerId,String Message,Object...Params);
+	
+	void warnFmt(Exception ex,int MarkerId,String Message,Object...Parames);
+	
+	void error(int MarkerId,String Message);
+	
+	void error(int MarkerId,String Message,Exception ex);
+	
+	void errorFmt(int MarkerId,String Message,Object...Params);
+	
+	void errorFmt(Exception ex,int MarkerId,String Message,Object...Parames);
+}
