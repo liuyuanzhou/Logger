@@ -22,6 +22,11 @@ public class LoggerImpl implements ILogger
 		_loggerId = LoggerId;
 	}
 	
+	public void info(String Message)
+	{
+		info(0,Message);
+	}
+	
 	public void info(int MarkerId, String Message)
 	{
 		info(MarkerId,Message,null);
@@ -33,6 +38,11 @@ public class LoggerImpl implements ILogger
 			WriteLog(MarkerId,ex,LoggerLevel.Info,Message);
 	}
 	
+	public void infoFmt(String Message,Object...Params)
+	{
+		infoFmt(0,Message,Params);
+	}
+	
 	public void infoFmt(int MarkerId,String Message,Object...Params)
 	{
 		info(MarkerId,String.format(Message,Params),null);
@@ -41,6 +51,11 @@ public class LoggerImpl implements ILogger
 	public void infoFmt(Exception ex,int MarkerId,String Message,Object...Params)
 	{
 		info(MarkerId,String.format(Message,Params),ex);
+	}
+	
+	public void warn(String Message)
+	{
+		warn(0,Message);
 	}
 	
 	public void warn(int MarkerId,String Message)
@@ -54,6 +69,11 @@ public class LoggerImpl implements ILogger
 			WriteLog(MarkerId,ex,LoggerLevel.Warn,Message);
 	}
 	
+	public void warnFmt(String Message,Object...Params)
+	{
+		warnFmt(0,Message);
+	}
+	
 	public void warnFmt(int MarkerId,String Message,Object...Params)
 	{
 		warn(MarkerId,String.format(Message,Params),null);
@@ -62,6 +82,11 @@ public class LoggerImpl implements ILogger
 	public void warnFmt(Exception ex,int MarkerId,String Message,Object...Params)
 	{
 		warn(MarkerId,String.format(Message, Params),ex);
+	}
+	
+	public void error(String Message)
+	{
+		error(0,Message);
 	}
 	
 	public void error(int MarkerId,String Message)
@@ -73,6 +98,11 @@ public class LoggerImpl implements ILogger
 	{
 		if(CanLog(MarkerId,LoggerLevel.Error))
 			WriteLog(MarkerId,ex,LoggerLevel.Error,Message);
+	}
+	
+	public void errorFmt(String Message,Object...Params)
+	{
+		errorFmt(0,Message,Params);
 	}
 	
 	public void errorFmt(int MarkerId,String Message,Object...Params)

@@ -48,6 +48,7 @@ public class LoggerManager
 		List<AppenderInfo> ltAppenderInfo = new ArrayList<AppenderInfo>();
 		ltAppenderInfo.add(new AppenderInfo("Console",true));
 		ltAppenderInfo.add(new AppenderInfo("Text",true,"d://Log"));
+		ltAppenderInfo.add(new AppenderInfo("DataBase",true,"d://Log"));
 		List<IAppender> ltAppender = new ArrayList<IAppender>();
 		for(AppenderInfo info : ltAppenderInfo)
 		{
@@ -64,6 +65,7 @@ public class LoggerManager
 				case "DataBase":
 					DataBaseAppender da = new DataBaseAppender(AppenderType.DataBase,info.Enabled,info.Path);
 					ltAppender.add(da);
+					System.out.println("add database");
 					break;
 				default:
 					break;
@@ -77,9 +79,13 @@ public class LoggerManager
 		return getLogger(LoggerName,0);
 	}
 	
+	public static ILogger getLogger(Class clazz)
+	{
+		return getLogger(clazz.getName());
+	}
+	
 	public static ILogger getLogger(String LoggerName, int LoggerId)
 	{
-		System.out.println("begin get logger");
 		ILogger logger = null;
 		synchronized(_syncRoot){
 			if(!_dictLogger.containsKey(LoggerName))

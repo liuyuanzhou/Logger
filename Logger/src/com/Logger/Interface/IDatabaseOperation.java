@@ -1,6 +1,7 @@
 package com.Logger.Interface;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public interface IDatabaseOperation 
 {

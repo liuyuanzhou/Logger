@@ -70,14 +70,12 @@ public class LazyQueue<T>
 							ArrayList<T> ret = dequeueItems(dequeueCount);
 							_dequeueAction.run(ret);
 						}
-						else
-						{
-							Thread.sleep(10);
-						}
+						Thread.sleep(1);
 					}
 					catch(Exception ex)
 					{
 						//print log,now just do nothing,fill it after finish tracing manager.
+						ex.printStackTrace();
 					}
 				}
 			}
