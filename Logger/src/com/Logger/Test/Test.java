@@ -22,7 +22,7 @@ public class Test {
 		System.out.println(LoggerLevel.Info.intValue());
 		
 		ILogger logger = LoggerManager.getLogger(Test.class.getName(), 10000);
-		for(int i=0;i<50000;i++)
+		for(int i=0;i<1;i++)
 		{
 			logger.info(23, "info Message "+String.valueOf(i));
 		} 
