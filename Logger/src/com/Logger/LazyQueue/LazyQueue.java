@@ -8,7 +8,7 @@ import java.util.Queue;
 
 public class LazyQueue<T> 
 {
-	private int _maxQueueLength = 10000;
+	private int _maxQueueLength = 65535;
 	
 	private int _batchCount;
 	

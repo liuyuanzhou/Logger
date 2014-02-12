@@ -1,14 +1,5 @@
 package com.Logger.Test;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.util.LinkedList;
-import java.util.Queue;
-
-import com.Logger.DataAccess.DBManager;
-import com.Logger.DataAccess.Database;
 import com.Logger.Impl.*;
 import com.Logger.Interface.ILogger;
 
@@ -31,9 +22,9 @@ public class Test {
 		System.out.println(LoggerLevel.Info.intValue());
 		
 		ILogger logger = LoggerManager.getLogger(Test.class.getName(), 10000);
-		for(int i=0;i<1;i++)
+		for(int i=0;i<50000;i++)
 		{
 			logger.info(23, "info Message "+String.valueOf(i));
-		}
+		} 
 	}
 }

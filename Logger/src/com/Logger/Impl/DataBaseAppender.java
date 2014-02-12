@@ -32,8 +32,9 @@ public class DataBaseAppender implements IAppender
 					"@LoggerName","@ComputerName","@ThreadId","@Message","@Error","@Level","ProcessId"};
 			Object[] values = {e.MarkerId,e.LogId,e.ServiceName,e.LogTime,e.LoggerName,
 					e.ComputerName,e.ThreadId,e.Message,e.ex==null?"":e.ex.toString(),e.Level,e.ProcessId};
-			System.out.println("ready to write to database");
-			db.spExecuteNonQuery("AddLog", params, values);
+//			System.out.println("ready to write to database");
+			db.spExecuteNonQuery("dbo.AddLog", params, values);
+//			db.spExecuteNonQuery("TestProc", null, null);
 		}
 	}
 }

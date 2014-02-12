@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public interface IDatabaseOperation 
 {
-	int spExecuteNonQuery(String spName,String[] params,Object[] values);
+	int spExecuteNonQuery(String spName,String[] params,Object... values);
 	
 //	void spBeginExecuteNonQuery(String spName,String[] params,Object[] values,Action<Integer> callback);
 	

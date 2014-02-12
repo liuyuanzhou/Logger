@@ -13,7 +13,7 @@ public class LoggerImpl implements ILogger
 	
 	private int _loggerId;
 	
-	private final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+	private final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");//设置日期格式
 	
 	
 	public LoggerImpl(String LoggerName,int LoggerId)
@@ -138,12 +138,12 @@ public class LoggerImpl implements ILogger
 		LoggerEvent event = new LoggerEvent();
 		event.LoggerName = _loggerName;
 		event.LogId = _loggerId;
-		event.Level = Level.toString();
+		event.Level = Level.intValue();
 		event.LogTime = df.format(new Date());
 		event.MarkerId = MarkerId;
 		event.ServiceName = LoggerManager.ServiceName;
 		event.ProcessId = String.valueOf(getPid());
-		event.ThreadId = Thread.currentThread().getName();
+		event.ThreadId =  Integer.parseInt(String.valueOf(Thread.currentThread().getId()));
 		event.ex = ex;
 		event.Message = Message;
 		event.ComputerName = LoggerManager.ComputerName;

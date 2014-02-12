@@ -9,7 +9,7 @@ public class LoggerEvent
 	
 	public String ProcessId;
 	
-	public String ThreadId;
+	public int ThreadId;
 	
 	public String ServiceName;
 	
@@ -21,7 +21,7 @@ public class LoggerEvent
 	
 	public Exception ex;
 	
-	public String Level;
+	public int Level;
 	
 	public String ComputerName;
 	
