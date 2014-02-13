@@ -5,7 +5,7 @@ import com.Logger.Interface.IDatabaseOperation;
 
 public class DataBaseOperation implements IDatabaseOperation 
 {
-	public int spExecuteNonQuery(String spName,String[] params,Object[] values)
+	public int spExecuteNonQuery(String spName,String[] params,Object... values)
 	{
 		return 0;
 	}

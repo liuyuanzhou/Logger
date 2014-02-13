@@ -2,12 +2,8 @@ package com.Logger.DataAccess;
 
 import java.lang.reflect.Method;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.Properties;
 
-import org.dom4j.*;
-
-import com.Logger.Common.FileHelper;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class C3P0PoolAdapter extends ConnectionPoolAdapter
@@ -97,25 +93,25 @@ public class C3P0PoolAdapter extends ConnectionPoolAdapter
 //        }
 //    }
 	
-	private void init(ComboPooledDataSource ds)
-	{
-		try
-		{
-			ds.setDriverClass("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			ds.setJdbcUrl("jdbc:sqlserver://127.0.0.1:1433;DatabaseName=TraceDB;selectMethod=cursor");
-			ds.setUser("sa");
-			ds.setPassword("123456");
-			ds.setInitialPoolSize(3);
-			ds.setMaxIdleTime(30);
-			ds.setMaxPoolSize(30);
-			ds.setMinPoolSize(3);
-			ds.setMaxIdleTimeExcessConnections(15);
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-	}
+//	private void init(ComboPooledDataSource ds)
+//	{
+//		try
+//		{
+//			ds.setDriverClass("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//			ds.setJdbcUrl("jdbc:sqlserver://127.0.0.1:1433;DatabaseName=TraceDB;selectMethod=cursor");
+//			ds.setUser("sa");
+//			ds.setPassword("123456");
+//			ds.setInitialPoolSize(3);
+//			ds.setMaxIdleTime(30);
+//			ds.setMaxPoolSize(30);
+//			ds.setMinPoolSize(3);
+//			ds.setMaxIdleTimeExcessConnections(15);
+//		}
+//		catch(Exception ex)
+//		{
+//			ex.printStackTrace();
+//		}
+//	}
 	
 	private void init(Properties configs)
 	{
@@ -141,12 +137,12 @@ public class C3P0PoolAdapter extends ConnectionPoolAdapter
 
 		dataSource = new ComboPooledDataSource();
 		// 通过反射动态设定数据源属性
-		Class clazz = ComboPooledDataSource.class;
+		Class<?> clazz = ComboPooledDataSource.class;
 		Method[] methods = null;
 		String key = null;
 		String val = null;
 		String methodName = null;
-		Enumeration eunm = configs.propertyNames();
+		Enumeration<?> eunm = configs.propertyNames();
 		while (eunm.hasMoreElements()) {
 			key = (String) eunm.nextElement();
 			val = configs.getProperty(key);

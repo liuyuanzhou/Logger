@@ -14,7 +14,7 @@ public class DBManager
 	private static Hashtable<String,Properties> dictConnectionStrings = new Hashtable<String,Properties>();
 	
 	static{
-		dictConnectionStrings = FileHelper.loadProperties("src/c3p0-config.xml", "named-config");
+		dictConnectionStrings = FileHelper.loadProperties("src/config.xml", "c3p0-config","named-config");
 	}
 	
 	public static Database getDatabase(String dbName)

@@ -39,17 +39,18 @@ public class FileHelper
 		return sb.toString();
 	}
 	
-	public static Hashtable<String,Properties> loadProperties(String filePath,String RootElementName)
+	public static Hashtable<String,Properties> loadProperties(String filePath,String RootElementName,String ConfigSectionName)
 	{
 		Hashtable<String,Properties> h = new Hashtable<String,Properties>();
 		try
 		{
-			Document doc = DocumentHelper.parseText(FileHelper.readFileAsString(filePath));
+			Document doc = DocumentHelper.parseText(readFileAsString(filePath));
 			Element element = doc.getRootElement();
 			@SuppressWarnings("unchecked")
-			List<Element> lt = element.elements(RootElementName);
+			List<Element> lt = element.element(RootElementName).elements(ConfigSectionName);
 			for(Element et : lt)
 			{
+				@SuppressWarnings("unchecked")
 				List<Element> ltProperties = et.elements("property");
 				Properties p = new Properties(); 
 				for(Element e : ltProperties)
